@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 import copy
 import importlib
-import logging
+import structlog
 import re
 import six
 from warnings import warn as _warn
@@ -20,7 +20,7 @@ from saml2.time_util import instant
 from saml2.time_util import in_a_while
 
 
-logger = logging.getLogger(__name__)
+logger = structlog.getLogger(__name__)
 
 
 def _filter_values(vals, vlist=None, must=False):

@@ -5,7 +5,7 @@
 """
 Suppport for the client part of the SAML2.0 SOAP binding.
 """
-import logging
+import structlog
 import re
 
 from saml2 import create_class_from_element_tree
@@ -23,7 +23,7 @@ except ImportError:
 import defusedxml.ElementTree
 
 
-logger = logging.getLogger(__name__)
+logger = structlog.getLogger(__name__)
 
 
 class XmlParseError(Exception):

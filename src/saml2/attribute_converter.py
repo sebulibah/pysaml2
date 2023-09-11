@@ -5,6 +5,7 @@
 import os
 import sys
 from importlib import import_module
+import structlog
 
 from saml2.s_utils import factory
 from saml2.s_utils import do_ava
@@ -13,8 +14,7 @@ from saml2 import extension_elements_to_elements
 from saml2 import SAMLError
 from saml2.saml import NAME_FORMAT_UNSPECIFIED, NAMEID_FORMAT_PERSISTENT
 
-import logging
-logger = logging.getLogger(__name__)
+logger = structlog.getLogger(__name__)
 
 
 class UnknownNameFormat(SAMLError):

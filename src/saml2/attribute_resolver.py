@@ -6,12 +6,12 @@
 Contains classes and functions that a SAML2.0 Service Provider (SP) may use
 to do attribute aggregation.
 """
-import logging
+import structlog
 #from saml2 import client
 from saml2 import BINDING_SOAP
 
 
-logger = logging.getLogger(__name__)
+logger = structlog.getLogger(__name__)
 
 DEFAULT_BINDING = BINDING_SOAP
 

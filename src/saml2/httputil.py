@@ -1,6 +1,6 @@
 import hashlib
 import hmac
-import logging
+import structlog
 import time
 import cgi
 import six
@@ -18,7 +18,7 @@ from saml2 import time_util
 
 __author__ = 'rohe0002'
 
-logger = logging.getLogger(__name__)
+logger = structlog.getLogger(__name__)
 
 
 class Response(object):

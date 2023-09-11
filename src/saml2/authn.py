@@ -1,4 +1,4 @@
-import logging
+import structlog
 import six
 import time
 from saml2 import SAMLError
@@ -13,7 +13,7 @@ from six.moves.urllib.parse import urlencode, parse_qs, urlsplit
 
 __author__ = 'rolandh'
 
-logger = logging.getLogger(__name__)
+logger = structlog.getLogger(__name__)
 
 
 class AuthnFailure(SAMLError):

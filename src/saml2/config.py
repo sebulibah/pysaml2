@@ -1,6 +1,7 @@
 import copy
 import importlib
 import logging
+import structlog
 import logging.handlers
 import os
 import re
@@ -22,7 +23,7 @@ from saml2.saml import NAME_FORMAT_URI
 from saml2.virtual_org import VirtualOrg
 
 
-logger = logging.getLogger(__name__)
+logger = structlog.getLogger(__name__)
 
 __author__ = 'rolandh'
 

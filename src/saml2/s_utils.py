@@ -3,7 +3,7 @@
 import base64
 import hashlib
 import hmac
-import logging
+import structlog
 import random
 import string
 import sys
@@ -18,7 +18,7 @@ from saml2 import VERSION
 from saml2.time_util import instant
 
 
-logger = logging.getLogger(__name__)
+logger = structlog.getLogger(__name__)
 
 
 class SamlException(Exception):

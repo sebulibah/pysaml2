@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 #
 import six
+import structlog
 
 """Contains classes and functions that a SAML2.0 Service Provider (SP) may use
 to conclude its tasks.
@@ -28,9 +29,8 @@ from saml2.client_base import LogoutError
 from saml2.client_base import NoServiceDefined
 from saml2.mdstore import locations
 
-import logging
 
-logger = logging.getLogger(__name__)
+logger = structlog.getLogger(__name__)
 
 
 class Saml2Client(Base):

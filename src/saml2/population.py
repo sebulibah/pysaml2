@@ -1,10 +1,10 @@
-import logging
+import structlog
 
 import six
 
 from saml2.cache import Cache
 
-logger = logging.getLogger(__name__)
+logger = structlog.getLogger(__name__)
 
 
 class Population(object):

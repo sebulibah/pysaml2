@@ -10,9 +10,11 @@ from saml2.validate import NotValid
 from saml2.response import IncorrectlySigned
 from saml2.sigver import verify_redirect_signature
 from saml2.s_utils import VersionMismatch
+import structlog
 
 
-logger = logging.getLogger(__name__)
+#logger = logging.getLogger(__name__)
+logger = structlog.getLogger(__name__)
 
 
 def _dummy(data, **_arg):

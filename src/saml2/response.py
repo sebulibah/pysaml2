@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 #
 import calendar
-import logging
+import structlog
 import six
 
 from saml2.samlp import STATUS_VERSION_MISMATCH
@@ -57,7 +57,7 @@ from saml2.validate import valid_instance
 from saml2.validate import valid_address
 from saml2.validate import NotValid
 
-logger = logging.getLogger(__name__)
+logger = structlog.getLogger(__name__)
 
 
 # ---------------------------------------------------------------------------

@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-import logging
+import structlog
 
 import memcache
 from saml2 import time_util
@@ -9,7 +9,7 @@ from saml2.cache import TooOld, CacheError
 # gathered from several different sources, all with their own
 # timeout time.
 
-logger = logging.getLogger(__name__)
+logger = structlog.getLogger(__name__)
 
 def _key(prefix, name):
     return "%s_%s" % (prefix, name)

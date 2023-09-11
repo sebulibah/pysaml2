@@ -5,7 +5,7 @@
 """
 Contains classes used in the SAML ECP profile
 """
-import logging
+import structlog
 from saml2.client_base import ACTOR, MIME_PAOS
 from saml2.ecp_client import SERVICE
 
@@ -26,7 +26,7 @@ from saml2.response import authn_response
 
 from saml2 import saml
 
-logger = logging.getLogger(__name__)
+logger = structlog.getLogger(__name__)
 
 
 def ecp_capable(headers):

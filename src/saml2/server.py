@@ -5,7 +5,7 @@
 """Contains classes and functions that a SAML2.0 Identity provider (IdP)
 or attribute authority (AA) may use to conclude its tasks.
 """
-import logging
+import structlog
 
 import importlib
 import dbm
@@ -50,7 +50,7 @@ from saml2.assertion import filter_attribute_value_assertions
 from saml2.ident import IdentDB, decode
 from saml2.profile import ecp
 
-logger = logging.getLogger(__name__)
+logger = structlog.getLogger(__name__)
 
 AUTHN_DICT_MAP = {
     "decl": "authn_decl",

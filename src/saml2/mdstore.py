@@ -2,7 +2,6 @@ from __future__ import print_function
 import hashlib
 import importlib
 import json
-import logging
 import os
 import sys
 from itertools import chain
@@ -15,6 +14,7 @@ from re import compile as regex_compile
 import requests
 
 import six
+import structlog
 
 from saml2 import md
 from saml2 import saml
@@ -65,7 +65,7 @@ from saml2.extension.shibmd import NAMESPACE as NS_SHIBMD
 from saml2.extension.shibmd import Scope
 
 
-logger = logging.getLogger(__name__)
+logger = structlog.getLogger(__name__)
 
 classnames = {
     "mdattr_entityattributes": "{ns}&{tag}".format(
@@ -1017,6 +1017,12 @@ class MetaDataMDX(InMemoryMetaData):
         return self.service(entity_id, "idpsso_descriptor",
                             "single_sign_on_service", binding)
 
+    def single_logout_service(self, entity_id, binding=None, typ="idpsso"):
+        if binding is None:
+            binding = BINDING_HTTP_REDIRECT
+        return self.service(entity_id, "idpsso_descriptor",
+                            "single_logout_service", binding)
+
 
 class MetadataStore(MetaData):
     def __init__(self, attrc, config, ca_certs=None,
@@ -1230,6 +1236,14 @@ class MetadataStore(MetaData):
             binding = BINDING_HTTP_REDIRECT
         return self.service(entity_id, "idpsso_descriptor",
                             "single_sign_on_service", binding)
+
+    def single_logout_service(self, entity_id, binding=None, typ="idpsso"):
+        # IDP
+
+        if binding is None:
+            binding = BINDING_HTTP_REDIRECT
+        return self.service(entity_id, "idpsso_descriptor",
+                            "single_logout_service", binding)
 
     def name_id_mapping_service(self, entity_id, binding=None, typ="idpsso"):
         # IDP

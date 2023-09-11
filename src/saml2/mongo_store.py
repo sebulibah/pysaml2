@@ -1,6 +1,6 @@
 import datetime
 from hashlib import sha1
-import logging
+import structlog
 
 from pymongo import MongoClient
 from pymongo.mongo_replica_set_client import MongoReplicaSetClient
@@ -25,7 +25,7 @@ import six
 
 __author__ = 'rolandh'
 
-logger = logging.getLogger(__name__)
+logger = structlog.getLogger(__name__)
 
 ONTS = load_metadata_modules()
 MMODS = metadata_modules()

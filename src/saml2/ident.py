@@ -1,6 +1,6 @@
 import copy
 import shelve
-import logging
+import structlog
 import six
 
 from hashlib import sha256
@@ -16,7 +16,7 @@ from saml2.saml import NAMEID_FORMAT_EMAILADDRESS
 
 __author__ = 'rolandh'
 
-logger = logging.getLogger(__name__)
+logger = structlog.getLogger(__name__)
 
 ATTR = ["name_qualifier", "sp_name_qualifier", "format", "sp_provided_id",
         "text"]

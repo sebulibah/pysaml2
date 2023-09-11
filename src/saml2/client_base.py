@@ -8,7 +8,7 @@ to conclude its tasks.
 import threading
 import six
 import time
-import logging
+import structlog
 from typing import Mapping
 from warnings import warn as _warn
 
@@ -61,7 +61,7 @@ from saml2.xmldsig import SIG_ALLOWED_ALG
 from saml2.xmldsig import DIGEST_ALLOWED_ALG
 
 
-logger = logging.getLogger(__name__)
+logger = structlog.getLogger(__name__)
 
 SSO_BINDING = saml2.BINDING_HTTP_REDIRECT
 

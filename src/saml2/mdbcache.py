@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-import logging
+import structlog
 from pymongo.mongo_client import MongoClient
 
 __author__ = 'rolandh'
@@ -11,7 +11,7 @@ from saml2 import time_util
 from saml2.cache import TooOld
 from saml2.time_util import TIME_FORMAT
 
-logger = logging.getLogger(__name__)
+logger = structlog.getLogger(__name__)
 
 
 class Cache(object):

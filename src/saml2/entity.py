@@ -1,8 +1,8 @@
 import base64
 import copy
-import logging
 import requests
 import six
+import structlog
 
 from binascii import hexlify
 from hashlib import sha1
@@ -78,7 +78,7 @@ from saml2.xmldsig import SIG_ALLOWED_ALG
 from saml2.xmldsig import DIGEST_ALLOWED_ALG
 
 
-logger = logging.getLogger(__name__)
+logger = structlog.getLogger(__name__)
 
 __author__ = 'rolandh'
 

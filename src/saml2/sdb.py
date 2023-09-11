@@ -1,11 +1,11 @@
-import logging
+import structlog
 
 from hashlib import sha1
 
 from saml2.ident import code_binary
 
 
-logger = logging.getLogger(__name__)
+logger = structlog.getLogger(__name__)
 
 
 def context_match(cfilter, cntx):

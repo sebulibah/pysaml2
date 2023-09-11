@@ -8,7 +8,7 @@ programs.
 """
 
 from six.moves import http_cookiejar as cookielib
-import logging
+import structlog
 
 from saml2 import soap
 from saml2 import saml
@@ -29,7 +29,7 @@ from saml2.s_utils import BadRequest
 SERVICE = "urn:oasis:names:tc:SAML:2.0:profiles:SSO:ecp"
 PAOS_HEADER_INFO = 'ver="%s";"%s"' % (paos.NAMESPACE, SERVICE)
 
-logger = logging.getLogger(__name__)
+logger = structlog.getLogger(__name__)
 
 
 class Client(Entity):

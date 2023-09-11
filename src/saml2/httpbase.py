@@ -13,9 +13,9 @@ from saml2 import class_name, SAMLError
 from saml2.pack import http_post_message
 from saml2.pack import make_soap_enveloped_saml_thingy
 
-import logging
+import structlog
 
-logger = logging.getLogger(__name__)
+logger = structlog.getLogger(__name__)
 
 if requests.__version__ < "2.0.0":
     DICT_HEADERS = False

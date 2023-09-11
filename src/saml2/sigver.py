@@ -7,7 +7,7 @@ import datetime
 import dateutil
 import hashlib
 import itertools
-import logging
+import structlog
 import os
 import re
 import six
@@ -66,7 +66,7 @@ from saml2.xml.schema import node_to_schema
 from saml2.xml.schema import XMLSchemaError
 
 
-logger = logging.getLogger(__name__)
+logger = structlog.getLogger(__name__)
 
 SIG = '{{{ns}#}}{attribute}'.format(ns=ds.NAMESPACE, attribute='Signature')
 

@@ -1,8 +1,8 @@
-import logging
+import structlog
 from saml2.attribute_resolver import AttributeResolver
 from saml2.saml import NAMEID_FORMAT_PERSISTENT
 
-logger = logging.getLogger(__name__)
+logger = structlog.getLogger(__name__)
 
 
 class VirtualOrg(object):

@@ -13,7 +13,7 @@ try:
 except:
     import cgi as html
 
-import logging
+import structlog
 
 import saml2
 from saml2.s_utils import deflate_and_base64_encode
@@ -38,7 +38,7 @@ except ImportError:
 import defusedxml.ElementTree
 
 
-logger = logging.getLogger(__name__)
+logger = structlog.getLogger(__name__)
 
 NAMESPACE = "http://schemas.xmlsoap.org/soap/envelope/"
 

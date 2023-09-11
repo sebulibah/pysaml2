@@ -7,10 +7,10 @@
 import hashlib
 import shelve
 
-import logging
+import structlog
 import six
 
-logger = logging.getLogger(__name__)
+logger = structlog.getLogger(__name__)
 
 
 class Eptid(object):

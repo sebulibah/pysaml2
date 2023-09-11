@@ -4,9 +4,9 @@ import shelve
 import six
 from saml2.ident import code, decode
 from saml2 import time_util, SAMLError
-import logging
+import structlog
 
-logger = logging.getLogger(__name__)
+logger = structlog.getLogger(__name__)
 
 # The assumption is that any subject may consist of data
 # gathered from several different sources, all with their own
