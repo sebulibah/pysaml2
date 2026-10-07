@@ -1,0 +1,176 @@
+# Contribution Guidelines
+
+The project practices [test-driven development](https://tdd.mooc.fi/)
+in
+[Git feature (topic) branches](https://www.atlassian.com/git/tutorials/comparing-workflows/feature-branch-workflow).
+Please maintain a [linear commit history](https://archive.is/VpWTs) by
+rebasing changes on the latest HEAD of the main branch before
+submitting them for review as a
+[GitHub pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests).
+
+## Development Environment
+
+:::{admonition} Guidance
+
+This project **REQUIRES** [Git](https://git-scm.com/),
+[GNU Make](https://www.gnu.org/software/make/), and
+[Python](https://www.python.org/) 3.12 or later.
+
+:::
+
+Additionally, on Linux it needs
+[lsb-release](https://refspecs.linuxfoundation.org/lsb.shtml).  On
+macOS it uses the
+[Command Line Tools for Xcode](https://developer.apple.com/documentation/xcode/installing-the-command-line-tools),
+[Homebrew](https://brew.sh/), and
+[MacPorts](https://www.macports.org/).  Several of the available make
+targets are listed below.  Review the [makefile](github:GNUmakefile)
+for additional details.
+
+`make build-deps`
+: Install the remaining system-level build dependencies.  Requires
+  root access via [sudo](https://www.sudo.ws/).
+
+`make setup`
+: Create (or update) a
+  [Python virtual environment](https://packaging.python.org/guides/installing-using-pip-and-virtual-environments)
+  named `.venv` in the project root directory, and perform an editable
+  installation of this project that includes development and testing
+  tools.
+
+`make pre-commit`
+: Configure optional pre-commit hooks, which require the virtual
+  environment to be active in your code editor or
+  [Git porcelain](https://git-scm.com/book/en/v2/Git-Internals-Plumbing-and-Porcelain).
+
+`make lint`
+: Check code syntax and style.
+
+`make test`
+: Perform comprehensive functional and integration testing.
+
+`make smoke`
+: Run a shorter, faster subset of the test suite.
+
+`make clean`
+: Reset the development environment, which includes removing the
+  pre-commit hooks.
+
+## Code Style
+
+:::{admonition} Guidance
+
+Changes **MUST** be self-contained and buildable, with updated tests
+and documentation.
+
+:::
+
+This project follows these code styles:
+
+- [Python Black](https://black.readthedocs.io/)
+  and [isort](https://pycqa.github.io/isort/)
+
+- [the Google Markdown style guide](https://google.github.io/styleguide/docguide/style.html),
+  but with a more traditional 70-character line limit
+
+- [the Home Assistant YAML style guide](https://developers.home-assistant.io/docs/documenting/yaml-style-guide/)
+
+## Commit Messages
+
+:::{admonition} Guidance
+
+This project **REQUIRES**
+[Conventional Commits 1.0.0](https://www.conventionalcommits.org/en/v1.0.0/),
+with which it implements
+[Semantic Versioning 2.0.0](https://semver.org/spec/v2.0.0.html).
+
+:::
+
+In commit messages:
+
+- Please use English.
+
+- Limit the first line to at most 100 characters.  Wrap the rest of
+  the commit message at column 70.
+
+- Summarize the changes with a one-sentence commit description in the
+  imperative mood, lowercasing the starting verb and omitting ending
+  punctuation.
+
+- For the commit type, specify one of {term}`build`, {term}`chore`,
+  {term}`ci`, {term}`docs`, {term}`feat`, {term}`fix`, {term}`perf`,
+  {term}`style`, {term}`refactor`, or {term}`test`.
+
+## Commit Scopes
+
+:::{admonition} Guidance
+
+Per _Conventional Commits_, a commit scope is an **OPTIONAL**
+abbreviation, acronym, codename, or keyword that provides additional
+context to reviewers by naming the essential component of the change.
+Changes covering multiple scopes or changes not specific to one scope
+**MUST NOT** specify a scope.
+
+:::
+
+An atomic commit can alter multiple files.  For example, an interface
+change could require modifications to class definitions, method calls,
+property references, and unit tests throughout the project.  The
+commit scope tells reviewers where to focus their analysis.  In change
+logs, commit scopes help sponsors understand the structure of the work
+going into fixes, features, or breaking changes.  For Python code
+changes, the commit scope specifies the second-level Python module
+name of the code instigating the change.  It does not include the
+module's top-level prefix or any suffixes.  Functional or unit test
+changes reference the scope of the code being exercised; likewise for
+module-specific documentation.  Omit the commit scope when describing
+changes to integration tests, to code in second-level
+[dunder](https://wiki.python.org/moin/DunderAlias) modules, or to
+general project documentation.
+
+## Commit Types
+
+{.glossary}
+`build`
+: a change to the build system or external dependencies, e.g., the
+  makefile
+
+{.glossary}
+`chore`
+: a miscellaneous tooling or tool configuration change, e.g., the
+  .gitignore file, or a change not covered by the other commit types
+
+{.glossary}
+`ci`
+: a change to continuous integration/continuous delivery (CI/CD)
+  processes, e.g., GitHub Actions
+
+{.glossary}
+`docs`
+: a documentation-only change, including edits to in-line
+  documentation and comments
+
+{.glossary}
+`feat`
+: a new feature
+
+{.glossary}
+`fix`
+: a bug fix
+
+{.glossary}
+`perf`
+: a code change that improves performance
+
+{.glossary}
+`refactor`
+: a code change that neither fixes a bug nor adds a feature
+
+{.glossary}
+`style`
+: a change that only affects formatting, or a change related to the
+  linter configuration
+
+{.glossary}
+`test`
+: a new test or a correction to an existing test

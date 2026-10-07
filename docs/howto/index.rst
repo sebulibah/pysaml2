@@ -32,9 +32,3 @@ So you will find descriptions of both cases here.
 The configuration is the same regardless of whether you are using PySAML2 in a
 WSGI or non-WSGI environment.
 
-.. toctree::
-   :maxdepth: 1
-
-   config
-
-

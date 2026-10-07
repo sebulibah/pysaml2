@@ -10,9 +10,5 @@ In order to confirm that pysaml2 has been installed correctly and are ready to u
 
 Contents:
 
-.. toctree::
-   :maxdepth: 1
-
-   sp
-   idp
-   
+* :ref:`Service Provider example <example_sp>`
+* :ref:`Identity Provider example <example_idp>`
